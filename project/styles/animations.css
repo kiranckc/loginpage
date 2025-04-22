@@ -1,0 +1,145 @@
+/* Logo animation styles */
+.logo-animation {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.circle-1 {
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 8px;
+  animation: pulse 2s infinite alternate, float 3s infinite ease-in-out;
+}
+
+.circle-2 {
+  width: 12px;
+  height: 12px;
+  top: 12px;
+  left: 0;
+  animation: pulse 2.5s infinite alternate-reverse, float 3.5s infinite ease-in-out;
+}
+
+.circle-3 {
+  width: 14px;
+  height: 14px;
+  top: 12px;
+  right: 0;
+  animation: pulse 3s infinite alternate, float 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Button hover effect */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  opacity: 0.1;
+}
+
+/* Input focus animation */
+.form-group input {
+  transform-origin: left top;
+  transition: border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.form-group input:focus {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  0%, 100% {transform: translateX(0);}
+  20%, 60% {transform: translateX(-2px);}
+  40%, 80% {transform: translateX(2px);}
+}
+
+/* Form entry animation */
+.login-container {
+  animation: fadeIn 0.6s ease-out forwards, slideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Checkbox animation */
+.remember-me input[type="checkbox"]::before {
+  transform-origin: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.remember-me input[type="checkbox"]:checked::before {
+  animation: checkmark 0.2s ease-in-out forwards;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
